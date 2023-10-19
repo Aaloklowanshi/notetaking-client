@@ -47,9 +47,22 @@ export const Note = () => {
     fetchData();
   }, [noteId]);
 
+
   const modules = {
-    // ... your modules configuration
-  };
+    toolbar: [
+        [{header: "1"}, {header: "2"}, {font: []}],
+        [{list: "ordered"}, {list: "bullet"}],
+        ["bold", "italic", "underline", "strike", "blockquote"],
+        [{align: []}],
+        [
+            {color: ["red", "yellow", "green", "blue"]},
+            {background: ["red", "yellow", "green", "blue"]},
+        ],
+        ["link"],
+        ["image", "video"],
+        ["clean"],
+    ],
+};
 
   const handleVideoUpload = (event) => {
     setLink(URL.createObjectURL(event.target.files[0]));
