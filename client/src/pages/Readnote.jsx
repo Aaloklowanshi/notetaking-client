@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Paper, Typography } from '@mui/material';
 import DOMPurify from 'dompurify'; // Make sure you have installed this library
-import '../styles/readnote.css';
+import './../styles/readnote.css';
 import ReactPlayer from 'react-player';
 
 export const Readnote = () => {

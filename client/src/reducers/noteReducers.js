@@ -8,7 +8,7 @@ import {
   NOTE_UPDATE_SUCCESS,
   NOTE_UPDATE_FAIL,
 
-} from "../constants/noteConstants";
+} from "./../constants/noteConstants";
 
 const initialState = {
   adding: false,

@@ -1,12 +1,12 @@
 import React, {useState, useRef, useMemo, useEffect} from "react";
 import {Typography, TextField, Button} from "@mui/material";
-import "../styles/createnote.css";
+import "./../styles/createnote.css";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {addNote} from "../actions/noteActions";
+import {addNote} from "./../actions/noteActions";
 
 const modules = {
     toolbar: [

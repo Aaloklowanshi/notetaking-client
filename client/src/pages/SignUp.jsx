@@ -4,7 +4,7 @@ import {Card, Typography} from "@mui/material";
 import {useState} from "react";
 import axios from "axios";
 import {useDispatch, useSelector} from 'react-redux'
-import { signup } from '../actions/userActions';
+import { signup } from './../actions/userActions';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 

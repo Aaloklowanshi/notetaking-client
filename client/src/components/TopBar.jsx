@@ -3,12 +3,14 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Card, Typography, Button } from '@mui/material';
 import DOMPurify from 'dompurify';
-import '../styles/topbar.css';
+import './../styles/topbar.css';
+
+const BASE_URL = 'https://notetakingbackend-3r0f.onrender.com';
 
 export const TopBar = () => {
   const [searchValue, setSearchValue] = useState('');
   const [notes, setNotes] = useState([]);
-  const [filteredNotes, setFilteredNotes] = useState([]); // Add filteredNotes state
+  const [filteredNotes, setFilteredNotes] = useState([]);
   const [selectedSortOption, setSelectedSortOption] = useState('oldest');
   const navigate = useNavigate();
 
@@ -42,7 +44,7 @@ export const TopBar = () => {
 
   const init = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/user/allnote', {
+      const response = await axios.get(`${BASE_URL}/user/allnote`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -67,13 +69,11 @@ export const TopBar = () => {
   }, [selectedSortOption]);
 
   useEffect(() => {
-    // Update filteredNotes when searchValue or selectedSortOption changes
     setFilteredNotes(filterNotes(notes, searchValue, selectedSortOption));
   }, [searchValue, selectedSortOption]);
 
   const deleteNote = (noteId) => {
     setNotes((prevNotes) => prevNotes.filter((note) => note._id !== noteId));
-    // Also update the filteredNotes array
     setFilteredNotes((prevNotes) => prevNotes.filter((note) => note._id !== noteId));
   };
 
@@ -121,6 +121,7 @@ export const TopBar = () => {
 function Note({ note, onDelete }) {
   const sanitizedContent = DOMPurify.sanitize(note.description);
   const navigate = useNavigate();
+
   const handleDelete = async () => {
     try {
       const noteId = note._id;
@@ -130,14 +131,14 @@ function Note({ note, onDelete }) {
         Authorization: `Bearer ${token}`,
       };
 
-      await axios.delete(`http://localhost:8000/user/deletenote/${noteId}`, {
+      await axios.delete(`${BASE_URL}/user/deletenote/${noteId}`, {
         headers: headers,
       });
       onDelete(note._id);
     } catch (error) {
       console.error('Error deleting note:', error);
     }
-  }
+  };
 
   return (
     <Card
@@ -152,7 +153,7 @@ function Note({ note, onDelete }) {
         border: '1px solid #d0d0d0',
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
         borderRadius: 10,
-          backgroundColor: note.color,
+        backgroundColor: note.color,
       }}
     >
       <Typography textAlign={'center'} variant="h5" style={{ fontSize: 18, fontWeight: 'bold' }}>

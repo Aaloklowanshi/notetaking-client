@@ -1,6 +1,6 @@
 import React , {useState} from 'react';
-import { TopBar } from '../components/TopBar';
-import '../styles/homepage.css';
+import { TopBar } from './../components/TopBar';
+import './../styles/homepage.css';
 import { useNavigate } from 'react-router-dom';
 import ReactPlayer from "react-player";
 

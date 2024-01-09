@@ -4,13 +4,12 @@ import {
   NOTE_ADD_REQUEST,
   NOTE_ADD_SUCCESS,
   NOTE_ADD_FAIL,
-
   NOTE_UPDATE_REQUEST,
   NOTE_UPDATE_SUCCESS,
   NOTE_UPDATE_FAIL,
+} from "./../constants/noteConstants";
 
-
-} from "../constants/noteConstants";
+const BASE_URL = 'https://notetakingbackend-3r0f.onrender.com';
 
 export const addNote = (title, description, link, selectedColor) => async (dispatch) => {
   try {
@@ -24,7 +23,7 @@ export const addNote = (title, description, link, selectedColor) => async (dispa
     };
 
     await axios.post(
-      "http://localhost:8000/user/addnote",
+      `${BASE_URL}/user/addnote`,
       {
         title,
         description,
@@ -43,7 +42,6 @@ export const addNote = (title, description, link, selectedColor) => async (dispa
   }
 };
 
-
 export const updateNote = (noteId, title, description, link) => async (dispatch) => {
   try {
     dispatch({ type: NOTE_UPDATE_REQUEST });
@@ -53,7 +51,7 @@ export const updateNote = (noteId, title, description, link) => async (dispatch)
       Authorization: `Bearer ${token}`,
     };
 
-    await axios.put(`http://localhost:8000/user/notes/${noteId}`, {
+    await axios.put(`${BASE_URL}/user/notes/${noteId}`, {
       title,
       description,
       link,

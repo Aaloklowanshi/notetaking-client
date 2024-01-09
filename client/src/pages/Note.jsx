@@ -7,7 +7,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import the Quill editor's styles
 // import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'; // Import useSelector and useDispatch
-import { updateNote } from '../actions/noteActions'; 
+import { updateNote } from './../actions/noteActions'; 
 
 export const Note = () => {
   const { noteId } = useParams(); // Define noteId only once

@@ -81,7 +81,7 @@ import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../actions/userActions';
+import { login } from './../actions/userActions';
 import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
@@ -119,7 +119,7 @@ export const Login = () => {
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Typography variant="h6">
-          Don't have an account? Sign up below.
+          Don&apos;t have an account? Sign up below.
         </Typography>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
